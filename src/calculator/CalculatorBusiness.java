@@ -4,12 +4,15 @@ public class CalculatorBusiness
 {
     public double evaluateExpression(String expression) throws Exception
     {
+        // creates an expression object from string and returns the evaluation
         Expression e = new Expression(expression);
         return evaluateExpression(e);
     }
 
     public double evaluateExpression(Expression elements) throws Exception
     {
+        // first for evaluates * and / operators
+        // removes from the list
         for (int i = 0; i < elements.operators.size(); i++)
         {
             if (elements.operators.get(i) == '*')
@@ -38,6 +41,8 @@ public class CalculatorBusiness
             }
         }
 
+        // evaluates + and - operators
+        // removes from the list and adds the results
         for (int i = 0; i < elements.operators.size(); i++)
         {
             if (elements.operators.get(i) == '+')
@@ -62,6 +67,7 @@ public class CalculatorBusiness
             }
         }
 
+        // return the result
         return elements.numbers.get(0);
     }
 }

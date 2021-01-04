@@ -31,7 +31,8 @@ public class CalculatorController
         outputText.setText("0");
     }
 
-    @FXML void numericalInputButton(ActionEvent event)
+    @FXML
+    void numericalInputButton(ActionEvent event)
     {
         isLastOperatorOrEmpty = false;
         String buttonValue = ((Button)event.getSource()).getUserData().toString();
@@ -40,7 +41,8 @@ public class CalculatorController
         inputText.setText(newInputText);
     }
 
-    @FXML void operatorInputButton(ActionEvent event)
+    @FXML
+    void operatorInputButton(ActionEvent event)
     {
         if (isLastOperatorOrEmpty && emptyOutput)
         {

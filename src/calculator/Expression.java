@@ -2,8 +2,12 @@ package calculator;
 
 import java.util.LinkedList;
 
+// this class represent an expression and supports integer numbers and basic arithmetic operators
 public class Expression
 {
+    // 3 + 5 * 2 will be stored as:
+    //      numbers: 3, 5, 2
+    //      operators: +, *
     public LinkedList<Character> operators;
     public LinkedList<Double> numbers;
 
@@ -20,6 +24,7 @@ public class Expression
         splitElements(expression);
     }
 
+    // splits the operators and numbers
     private void splitElements(String expression)
     {
         int lastStartPoint = -1;
@@ -44,6 +49,7 @@ public class Expression
         numbers.add(Double.parseDouble(new String(number)));
     }
 
+    // returns false if the expression is not valid
     private boolean validateExpression(String expression)
     {
         if (expression.equals(""))
@@ -84,10 +90,6 @@ public class Expression
         return true;
     }
 
-    private boolean isSignOperator(char operator)
-    {
-        return operator == '+' || operator == '-';
-    }
     private boolean isNumerical(char number)
     {
         return number >= '0' && number <= '9';
