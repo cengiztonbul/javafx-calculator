@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="314.0" prefWidth="243.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.CalculatorController">
+    <children>
+        <TextField fx:id="inputText" prefHeight="25.0" prefWidth="70.0" />
+        <GridPane alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="50.0" />
+                <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="50.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" />
+            <RowConstraints />
+            </rowConstraints>
+            <children>
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="1" userData="1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="2" userData="2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="3" userData="3" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="4" userData="4" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="5" userData="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="6" userData="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="8" userData="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="7" userData="7" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="50.0" text="9" userData="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Button mnemonicParsing="false" onAction="#numericalInputButton" prefHeight="50.0" prefWidth="150.0" text="0" userData="0" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+
+                <Button mnemonicParsing="false" onAction="#operatorInputButton" prefHeight="50.0" prefWidth="50.0" text="+" userData="+" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <Button mnemonicParsing="false" onAction="#operatorInputButton" prefHeight="50.0" prefWidth="50.0" text="-" userData="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <Button mnemonicParsing="false" onAction="#operatorInputButton" prefHeight="50.0" prefWidth="50.0" text="*" userData="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <Button mnemonicParsing="false" onAction="#operatorInputButton" prefHeight="50.0" prefWidth="50.0" text="/" userData="/" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+                <Button mnemonicParsing="false" onAction="#printOutput" prefHeight="50.0" prefWidth="200.0" text="=" userData="/" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="4" />
+            </children>
+        </GridPane>
+        <TextField fx:id="outputText" prefHeight="25.0" prefWidth="70.0" />
+    </children>
+</VBox>
