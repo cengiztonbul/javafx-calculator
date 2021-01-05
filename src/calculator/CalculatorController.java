@@ -13,11 +13,10 @@ public class CalculatorController
     @FXML
     private TextField outputText;
 
-    private boolean isLastOperatorOrEmpty = true;
+    private boolean startingWithOperator;
 
     private boolean emptyOutput;
     private double outputValue;
-    private boolean startingWithOperator;
 
     public CalculatorController()
     {
@@ -31,30 +30,12 @@ public class CalculatorController
         outputText.setText("0");
     }
 
+
+    // call for numerical buttons
+    // writes the button value to the input field
     @FXML
-    void numericalInputButton(ActionEvent event)
+    void inputButton(ActionEvent event)
     {
-        isLastOperatorOrEmpty = false;
-        String buttonValue = ((Button)event.getSource()).getUserData().toString();
-        String newInputText = inputText.getText() + buttonValue;
-
-        inputText.setText(newInputText);
-    }
-
-    @FXML
-    void operatorInputButton(ActionEvent event)
-    {
-        if (isLastOperatorOrEmpty && emptyOutput)
-        {
-            return;
-        }
-        if (!emptyOutput)
-        {
-            startingWithOperator = true;
-        }
-
-        isLastOperatorOrEmpty = true;
-
         String buttonValue = ((Button)event.getSource()).getUserData().toString();
         String newInputText = inputText.getText() + buttonValue;
 
@@ -66,16 +47,18 @@ public class CalculatorController
     {
         try
         {
-            char startingChar = inputText.getText().charAt(0);
-
-            startingWithOperator = startingChar == '+' || startingChar == '-' || startingChar == '*' || startingChar == '/';
-
+            char firstChar = inputText.getText().charAt(0);
+            startingWithOperator = firstChar == '+' || firstChar == '-' || firstChar == '*' || firstChar == '/';
             String input = inputText.getText();
-            if (startingWithOperator)
+
+            // if the input starts with an operator and output is not empty
+            // insert output at the beginning of the input
+            if (startingWithOperator && !emptyOutput)
             {
                 input = (int)outputValue + input;
             }
 
+            // run the logic and set output text
             CalculatorBusiness cb = new CalculatorBusiness();
             double res = cb.evaluateExpression(input);
             outputText.setText(Double.toString(res));
@@ -85,19 +68,19 @@ public class CalculatorController
         }
         catch (Exception e)
         {
+            // if there is an error,  print the error
             outputText.setText(e.getMessage());
             emptyOutput = true;
         }
 
         inputText.clear();
-        isLastOperatorOrEmpty = true;
     }
 
     @FXML
     private void clear()
     {
+        emptyOutput = true;
         inputText.setText("");
         outputText.setText("0");
-        emptyOutput = true;
     }
 }

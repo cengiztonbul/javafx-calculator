@@ -6,8 +6,8 @@ import java.util.LinkedList;
 public class Expression
 {
     // 3 + 5 * 2 will be stored as:
-    //      numbers: 3, 5, 2
-    //      operators: +, *
+    //      numbers: [3, 5, 2]
+    //      operators: [+, *]
     public LinkedList<Character> operators;
     public LinkedList<Double> numbers;
 
